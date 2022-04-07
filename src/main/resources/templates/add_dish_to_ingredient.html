@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a dish to an ingredient</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.1/css/bootstrap.min.css" type="text/css"/>
+</head>
+<body>
+<h3>Dishes</h3>
+<table class="table table-bordered">
+    <input type="text" class="form-control" readonly th:field="*{ingredient.id}"/>
+    <thead style="background-color: midnightblue; color: white">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody class="table-light">
+    <th:block th:each="dish : ${dishList}">
+        <tr>
+            <td th:text="${dish.id}"></td>
+            <td th:text="${dish.name}"></td>
+            <td th:text="${dish.type}"></td>
+            <td>
+                <a th:href="@{/updateIngredient/addDish/save(dishId=${dish.id}, ingredientId=${ingredient.id})}" class="btn btn-info" role="button">Add</a>
+            </td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>

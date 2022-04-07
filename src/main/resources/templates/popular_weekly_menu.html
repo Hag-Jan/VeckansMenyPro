@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Weekly Menu</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+
+<h2>Popular Dishes Weekly Menu</h2>
+
+<table class="table table-bordered">
+    <thead style="background-color: midnightblue; color: white">
+    <tr>
+        <th>Week Day</th>
+        <th>Dish</th>
+        <th>Ingredients</th>
+    </tr>
+    </thead>
+    <tbody class="table-light">
+
+    <tr th:each="String, dish : ${weekdays}">
+        <td th:text="${String}">Weekday</td>
+        <td th:text="${sevenMostPopularDishes[dish.index].name}"></td>
+        <td th:text="${sevenMostPopularDishes[dish.index].ingredientsFormatted}"></td>
+    </tr>
+    </th:block>
+    </tbody>
+</table>
+
+<a th:href="@{/showShoppingListPopular}" class="btn btn-primary mb-1" role="button">Shopping
+    List</a>
+<a th:href="@{/}" class="btn btn-primary mb-1" role="button">Back</a>
+
+</body>
+</html>

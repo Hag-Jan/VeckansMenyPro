@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css}">
+</head>
+<body>
+
+<h2>Shopping List</h2>
+
+<table class="table table-bordered">
+    <thead style="background-color: midnightblue; color: white">
+    <tr>
+        <th>Ingredients</th>
+    </tr>
+    </thead>
+    <tbody class="table-light">
+
+    <tr th:each="ingredient : ${shoppingList}">
+        <td th:text="${ingredient.name}"></td>
+    </tr>
+    </th:block>
+    </tbody>
+</table>
+
+
+<a th:href="@{${getBack}}" class="btn btn-primary mb-1" role="button">Back</a>
+
+</body>
+</html>
